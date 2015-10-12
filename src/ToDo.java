@@ -21,7 +21,7 @@ public class ToDo {
             }
             System.out.println("Options:");
             System.out.println("[1] Create todo");
-            System.out.println("[2] Mark todo as done");
+            System.out.println("[2] Mark todo as done or not done");
 
             String option = scanner.nextLine();
             int optionNum = Integer.valueOf(option);
@@ -33,11 +33,18 @@ public class ToDo {
                 todos.add(item);
             }
             else if (optionNum == 2) {
-                System.out.println("Type the number of the todo you want");
+                System.out.println("Type the number of the todo you want to toggle");
                 String select = scanner.nextLine();
-                int selectNum = Integer.valueOf(select);
-                ToDoItem item = todos.get(selectNum - 1);//
-                item.isDone = true;
+                try {
+                    int selectNum = Integer.valueOf(select);
+                    ToDoItem item = todos.get(selectNum - 1);//
+                    item.isDone = !item.isDone;
+                } catch (Exception e ){
+                    System.out.println("An error occurred.");
+                }
+            }
+            else {
+                System.out.println("Invalid number");
             }
         }
     }
