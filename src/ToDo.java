@@ -9,14 +9,15 @@ public class ToDo {
         ArrayList<ToDoItem> todos = new ArrayList<>();//creating arraylist, sequential and dynamic
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {//creating loop, fore loop
+        while (true) {//creating loop,
             int todoNum = 1;
             for (ToDoItem todo : todos) {
                 String checkbox = "[ ]";
                 if (todo.isDone){
                     checkbox = "[X]";
                 }
-                System.out.println( todoNum + ". " + checkbox  + todo.text);
+                String line = String.format("%d. %s %s", todoNum, checkbox, todo.text);
+                System.out.println(line );
                 todoNum++;
             }
             System.out.println("Options:");
